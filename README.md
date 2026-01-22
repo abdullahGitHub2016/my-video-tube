@@ -19,7 +19,6 @@ Designed for learning, prototyping, and small-scale production use.
 
 > _(Add screenshots here)_
 
-```
 ## 📸 Screenshots
 
 ### 🏠 Home Page
@@ -31,7 +30,6 @@ Designed for learning, prototyping, and small-scale production use.
 ### ▶️ Hover Preview
 ![Hover Preview](screenshots/preview-hover.gif)
 
-```
 
 ---
 
