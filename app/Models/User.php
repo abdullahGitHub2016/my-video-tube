@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
+use App\Models\Video; // Ensure this is imported at the top
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+
 
 class User extends Authenticatable
 {
@@ -49,4 +53,10 @@ class User extends Authenticatable
             'two_factor_confirmed_at' => 'datetime',
         ];
     }
+
+// Inside the User class
+public function videos(): HasMany
+{
+    return $this->hasMany(Video::class);
+}
 }
