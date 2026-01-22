@@ -20,10 +20,17 @@ Designed for learning, prototyping, and small-scale production use.
 > _(Add screenshots here)_
 
 ```
-/screenshots
- ├── home.png
- ├── upload.png
- └── preview-hover.gif
+## 📸 Screenshots
+
+### 🏠 Home Page
+![Home Page](screenshots/home.png)
+
+### ⬆️ Video Upload
+![Upload Page](screenshots/upload.png)
+
+### ▶️ Hover Preview
+![Hover Preview](screenshots/preview-hover.gif)
+
 ```
 
 ---
