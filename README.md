@@ -1,40 +1,187 @@
+# 📺 Laravel YouTube Clone
 
-📺 Laravel YouTube Clone
-A lightweight YouTube-style video sharing platform built with Laravel, Inertia.js, and Vue 3. This project features automatic thumbnail generation using FFmpeg and a responsive video grid layout.
+![Laravel](https://img.shields.io/badge/Laravel-10-red)
+![Vue](https://img.shields.io/badge/Vue-3-green)
+![Inertia](https://img.shields.io/badge/Inertia.js-enabled-purple)
+![Tailwind](https://img.shields.io/badge/TailwindCSS-3-blue)
+![License](https://img.shields.io/badge/license-MIT-success)
 
-🚀 Features
-Video Upload: Support for MP4 and QuickTime formats.
+A lightweight **YouTube-style video sharing platform** built with **Laravel**, **Inertia.js**, and **Vue 3**.  
+Designed for learning, prototyping, and small-scale production use.
 
-Auto-Thumbnail Generation: Automatically extracts a frame at the 1-second mark using FFmpeg.
+✨ Automatic thumbnail generation using **FFmpeg**  
+✨ Responsive, modern UI inspired by YouTube  
+✨ Clean Laravel architecture
 
-Responsive Grid: YouTube-style homepage layout using Tailwind CSS.
+---
 
-Video Preview: Hover-to-play functionality on video thumbnails.
+## 📸 Screenshots
 
-Dedicated Storage: Managed file system for videos and generated images.
+> _(Add screenshots here)_
 
-🛠️ Prerequisites
-PHP 8.2+
+```
+/screenshots
+ ├── home.png
+ ├── upload.png
+ └── preview-hover.gif
+```
 
-Composer
+---
 
-Node.js & NPM
+## 🚀 Features
 
-FFmpeg: Must be installed on the system (see Installation section).
+- 🎬 Video upload (MP4 & QuickTime)
+- 🖼️ Auto-thumbnail generation at 1-second mark
+- 📱 Fully responsive video grid (Tailwind CSS)
+- ▶️ Hover-to-play video preview
+- 🗂️ Organized storage for videos & thumbnails
+- ⚡ Fast SPA experience with Inertia.js
 
-SQLite/MySQL: Database for storing video metadata.
+---
 
- Installation1. Clone the repositoryBashgit clone https://github.com/your-username/youtube-clone.git
+## 🛠️ Tech Stack
+
+- **Backend:** Laravel 10+, PHP 8.2
+- **Frontend:** Vue 3, Inertia.js
+- **Styling:** Tailwind CSS
+- **Video Processing:** FFmpeg
+- **Database:** SQLite / MySQL
+- **Build Tool:** Vite
+
+---
+
+## 📦 Installation
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/your-username/youtube-clone.git
 cd youtube-clone
-2. Install DependenciesBashcomposer install
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
+composer install
 npm install
-3. Environment SetupCopy the example environment file and generate an app key:Bashcp .env.example .env
+```
+
+### 3️⃣ Environment Setup
+
+```bash
+cp .env.example .env
 php artisan key:generate
-Note: Ensure DB_DATABASE is configured in your .env.4. FFmpeg Configuration (Windows)This project requires FFmpeg and FFProbe binaries.Install via WinGet: winget install Gyan.FFmpegUpdate VideoController.php with your absolute paths:PHP'ffmpeg.binaries'  => 'C:/path/to/ffmpeg.exe',
-'ffprobe.binaries' => 'C:/path/to/ffprobe.exe',
-5. Storage Link & PermissionsCreate the symbolic link to make files accessible via the web:Bashphp artisan storage:link
-If you encounter permission issues on Windows, run the following in PowerShell as Admin:PowerShellicacls "storage/app/public" /grant "Everyone:(OI)(CI)F" /T
-6. Database MigrationBashphp artisan migrate
-🖥️ Running the ProjectStart the Vite development server for Vue:Bashnpm run dev
-In a separate terminal, start the Laravel server:Bashphp artisan serve
-Access the app at http://localhost:8000.🛠️ Useful CommandsCommandDescriptionphp artisan videos:clear-allWipes all videos/thumbnails from DB and Storagephp artisan videos:fix-thumbnailsGenerates missing thumbnails for existing videosphp artisan optimize:clearClears all application caches📂 Project Structureapp/Http/Controllers/VideoController.php: Handles upload logic and FFmpeg integration.resources/js/Pages/Welcome.vue: The main video grid component.storage/app/public/videos: Destination for uploaded video files.storage/app/public/thumbnails: Destination for generated JPEGs.📄 LicenseThe MIT License (MIT). Please see License File for more information.
+```
+
+> Configure database credentials in `.env`
+
+---
+
+## 🎞️ FFmpeg Setup (Windows)
+
+Install FFmpeg using WinGet:
+
+```bash
+winget install Gyan.FFmpeg
+```
+
+Update `VideoController.php`:
+
+```php
+'ffmpeg.binaries'  => 'C:/ffmpeg/bin/ffmpeg.exe',
+'ffprobe.binaries' => 'C:/ffmpeg/bin/ffprobe.exe',
+```
+
+---
+
+## 📂 Storage Setup
+
+```bash
+php artisan storage:link
+```
+
+**Windows Permission Fix (Run as Admin):**
+
+```powershell
+icacls "storage/app/public" /grant "Everyone:(OI)(CI)F" /T
+```
+
+---
+
+## 🗄️ Database Migration
+
+```bash
+php artisan migrate
+```
+
+---
+
+## ▶️ Run the Application
+
+### Start Frontend
+
+```bash
+npm run dev
+```
+
+### Start Backend
+
+```bash
+php artisan serve
+```
+
+🌐 Visit: http://localhost:8000
+
+---
+
+## 🛠️ Artisan Commands
+
+| Command | Description |
+|------|------------|
+| `php artisan videos:clear-all` | Deletes all videos & thumbnails |
+| `php artisan videos:fix-thumbnails` | Regenerates missing thumbnails |
+| `php artisan optimize:clear` | Clears application cache |
+
+---
+
+## 📁 Project Structure
+
+```
+app/
+ └── Http/Controllers/VideoController.php
+resources/
+ └── js/Pages/Welcome.vue
+storage/app/public/
+ ├── videos/
+ └── thumbnails/
+```
+
+---
+
+## 🧪 Testing (Optional)
+
+```bash
+php artisan test
+```
+
+---
+
+## 🚀 Deployment Notes
+
+- Run `npm run build` for production assets
+- Set `APP_ENV=production`
+- Set correct FFmpeg paths on server
+- Use Supervisor for queue workers (if added)
+
+---
+
+## 📜 License
+
+Licensed under the **MIT License**  
+Feel free to use, modify, and distribute.
+
+---
+
+## ⭐ Support
+
+If this project helped you, consider giving it a ⭐ on GitHub!
